@@ -1,9 +1,9 @@
-# Core Machine Learning & Signal Processing
+# Machine Learning Core (Optimized for Cloud Deployment)
 tensorflow-cpu
 numpy<2.0.0
 scikit-learn
 scipy
 
-# Dashboard & UI
+# Dashboard & Signal Visualization
 streamlit
 matplotlib

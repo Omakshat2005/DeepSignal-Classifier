@@ -389,6 +389,12 @@ def main():
         if n == 0:
             st.warning("No samples match. Adjust the filters.")
             return
+        if n > 1:
+            sample_idx = st.slider("Sample Index", 0, n - 1, 0)
+        else:
+            # If only 1 sample exists, set index to 0 automatically
+            sample_idx = 0
+            st.info("Showing the only available sample for this filter.")
 
         sample_idx = st.slider("Sample Index", 0, n - 1, 0)
 

@@ -396,8 +396,13 @@ def main():
             sample_idx = 0
             st.info("Showing the only available sample for this filter.")
 
-        sample_idx = st.slider("Sample Index", 0, n - 1, 0)
-
+        if n > 1:
+            # Adding a unique key="sample_slider" fixes the DuplicateElementId error
+            sample_idx = st.slider("Sample Index", 0, n - 1, 0, key="sample_slider")
+        else:
+            # If only 1 sample exists, set index to 0 automatically
+            sample_idx = 0
+            st.info("Showing the only available sample for this filter.")
         st.markdown("---")
         st.markdown("### Noise Injection")
         extra_noise = st.slider(

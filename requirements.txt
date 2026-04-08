@@ -1,10 +1,11 @@
-# Machine Learning Core (Optimized for Cloud Deployment)
-tensorflow
-numpy
+# Machine Learning & Deep Learning (Cloud Optimized)
+tensorflow-cpu
 scikit-learn
-scipy
-pickle
-gc
-# Dashboard & Signal Visualization
+numpy<2.0.0
+
+# Frontend & Dashboard
 streamlit
+
+# Data Processing & Visualization
 matplotlib
+scipy

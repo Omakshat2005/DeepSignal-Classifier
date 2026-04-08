@@ -1,12 +1,9 @@
-# Core Machine Learning & Data Science
-tensorflow-cpu>=2.12.0
+# Core Machine Learning & Signal Processing
+tensorflow-cpu
 numpy<2.0.0
 scikit-learn
-pandas
-
-# Frontend & Dashboard
-streamlit
-
-# Visualization & Signal Analysis
-matplotlib
 scipy
+
+# Dashboard & UI
+streamlit
+matplotlib

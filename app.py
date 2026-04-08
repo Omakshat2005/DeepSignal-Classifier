@@ -232,7 +232,7 @@ classes = ['BPSK', 'QPSK', '8PSK', 'PAM4', 'QAM16', 'QAM64', 'GFSK', 'CPFSK', 'W
 @st.cache_data(show_spinner=False)
 @st.cache_data(show_spinner=False)
 def load_data():
-    with open('Rml.pkl', 'rb') as f:
+    with open('demo_data.pkl', 'rb') as f:
         data = pickle.load(f, encoding='latin1')
     classes = ['8PSK', 'AM-DSB', 'AM-SSB', 'BPSK', 'CPFSK', 'GFSK', 'PAM4', 'QAM16', 'QAM64', 'QPSK', 'WBFM']
     mod_to_id = {name: i for i, name in enumerate(classes)}

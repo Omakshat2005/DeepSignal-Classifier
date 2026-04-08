@@ -1,6 +1,26 @@
 # DeepSignal-Classifier
-Real-Time Modulation Classification using Stacked LSTMs🎯 The ProblemIn modern telecommunications, identifying the modulation of a signal is critical for spectrum monitoring, electronic warfare, and cognitive radio. Traditional methods require heavy manual feature engineering and often fail in low Signal-to-Noise Ratio (SNR) environments.The Challenge: Build a system that can automatically classify 11 different modulation types (analog and digital) from raw I/Q samples, even when buried in noise or distorted by phase offsets.
-💡 The SolutionI developed a Stacked LSTM (Long Short-Term Memory) Neural Network trained on the RadioML 2016.10A dataset. Unlike standard CNNs, the LSTM architecture is specifically designed to learn the temporal dependencies and phase transitions inherent in RF signals.Key Features:Real-Time Inference: A Streamlit dashboard that allows users to select signals from a test set and see live AI predictions.Signal Visualization: Includes Time-Domain (I/Q), Constellation Diagrams, and Power Spectral Density (PSD) analysis to verify signal integrity.Noise Robustness: Tested across an SNR range of -18 dB to +20 dB.
-🏗️ Technical ArchitectureThe model uses a multi-layer approach to extract features from 128-sample I/Q vectors:Input Layer: Raw I/Q data $(128 \times 2)$.Stacked LSTMs: Two 64-unit LSTM layers to capture complex phase-shift patterns.Regularization: Batch Normalization and Dropout layers to prevent overfitting.Dense Output: A Softmax layer providing probability distributions across 11 classes.📈 Performance & Engineering InsightsRecruiter Note: I achieved a ~47.6% global accuracy across all SNR levels. While this number seems low for standard AI, it is highly competitive for this dataset because it includes "invisible" signals at -18 dB.Overcoming Technical Hurdles:Vanishing Gradients: Implemented a ReduceLROnPlateau scheduler to fine-tune the learning rate as the model converged.Phase Rotation Handling: Identified that BPSK signals often failed at high SNR due to phase offsets (slanted constellations). I used this insight to document the need for phase-invariant data augmentation.Hardware Efficiency: Optimized the training pipeline to run on a MacBook, managing 280% CPU spikes through efficient batching ($1024$).
-🚀 How to Streamlit Link: git clone https://github.com/yourusername/RF-Signal-Intelligence.gitInstall dependencies: pip install -r requirements.txtRun the Dashboard: streamlit run app.py
-🛠️ Tools UsedDeep Learning: TensorFlow, Keras.Data Science: NumPy, Pandas, Scikit-learn.Frontend: Streamlit.Signal Processing: Matplotlib (Spectral analysis).
+Real-Time RF Modulation Intelligence with Stacked LSTMs
+📌 Executive Summary
+DeepSignal-Classifier is a signal intelligence (SIGINT) platform that automates the identification of 11 different modulation types from raw I/Q data. By bridging the gap between Radio Frequency (RF) Engineering and Deep Learning, this project replaces traditional, manual feature extraction with a high-performance Stacked LSTM architecture capable of classifying signals even in high-noise environments (-18 dB SNR).
+
+🎯 The Engineering ChallengeIn real-world telecommunications, signals are rarely "clean." They are distorted by atmospheric noise, hardware imperfections, and phase offsets.Problem: Traditional classifiers require manual feature engineering and often fail when the Signal-to-Noise Ratio (SNR) drops.The Solution: An end-to-end pipeline that consumes raw complex-valued temporal data $(128x2)$ and extracts features using the temporal memory of Long Short-Term Memory (LSTM) cells.
+
+🏗️ Technical ArchitectureThe system utilizes a specialized Stacked LSTM design to process temporal phase and amplitude 
+variations:Input Layer: Raw I/Q signal vectors $(128 \times 2)$.LSTM Layer 1: 64 units with Batch Normalization to normalize the signal distribution.LSTM Layer 2: 64 units providing hierarchical temporal feature extraction.Dense Classifier: 128-neuron ReLU layer followed by a Softmax output for 11-class probability distribution.
+
+📊 Performance & Insights
+Accuracy: Achieved a ~47.6% global accuracy across the full SNR range (-18 dB to +20 dB). Note: This is highly competitive for the RadioML 2016.10A dataset, where low SNR samples are nearly indistinguishable from noise.
+Hardware Optimization: Successfully optimized the training pipeline to run on a MacBook, managing thermal constraints and 280% CPU spikes through strategic batching (1024).
+Technical Hurdles Overcome:
+Phase Rotation: Identified and documented that BPSK signals frequently misclassify due to phase offsets (slanted constellations).
+Learning Stability: Implemented ReduceLROnPlateau and EarlyStopping to prevent overfitting and ensure model convergence.
+
+🛠️ Tech Stack
+Deep Learning: TensorFlow / Keras (Sequential API).
+Data Processing: NumPy, Pandas, Scikit-learn (for data splitting and normalization).=
+Visualization: Matplotlib (Constellation Diagrams, PSD, and Waveforms).
+Interface: Streamlit (Custom CSS for a warm-toned, professional dashboard).
+
+
+Developed by Omakshat Sisodia
+Electronics & Communication Engineering Student | GEC Surat

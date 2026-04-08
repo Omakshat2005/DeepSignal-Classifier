@@ -1,6 +1,5 @@
-tensorflow-cpu
-numpy<2.0.0
-scikit-learn
-scipy
 streamlit
+numpy
 matplotlib
+scikit-learn
+tensorflow==2.15.1

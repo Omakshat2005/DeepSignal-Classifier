@@ -1,9 +1,6 @@
-# Machine Learning (Bare-bones for Cloud)
-tensorflow-cpu
+tensorflow-cpu==2.15.0
 numpy<2.0.0
-scikit-learn
-scipy
-
-# Dashboard & UI
-streamlit
-matplotlib
+scikit-learn==1.3.2
+scipy==1.11.4
+streamlit==1.31.0
+matplotlib==3.8.2

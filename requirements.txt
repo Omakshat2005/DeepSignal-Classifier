@@ -1,9 +1,9 @@
-# Deep Learning Core (CPU-only for cloud compatibility)
-tensorflow-cpu>=2.12.0
+# Machine Learning (Bare-bones for Cloud)
+tensorflow-cpu
 numpy<2.0.0
 scikit-learn
 scipy
 
-# Dashboard Interface
+# Dashboard & UI
 streamlit
 matplotlib
